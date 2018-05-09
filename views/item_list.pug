@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    // Hero Section
+    section#hero.list-hero
+        h2.hero_header= title
+
+    section.content
+        table
+            thead
+                tr
+                    th(scope='col') Name
+                    th(scope='col') Inventory ID
+                    th(scope='col') Unit Price ($)
+                    th(scope='col') Quantity
+            tbody
+                each item in item_list
+                    tr
+                        td#item-attribute #{item.name}
+                        td#item-attribute #{item._id}
+                        td#item-attribute #{item.price_formatted}
+                        td#item-attribute #{item.quantity}
+                        td#item-button
+                            a(href=item.url+'/update')
+                                input.button(type='button' location='table' value='EDIT')
+                        td#item-button
+                            a(href=item.url+'/delete')
+                                input.button(type='button' location='table' value='DELETE')
+                else
+                    li There are no items.
+        a(href='/inventory/item/create')
+            input.button(type='button' value='NEW ITEM')

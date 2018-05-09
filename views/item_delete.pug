@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    // Hero Section
+    section#hero.list-hero
+        h2.hero_header= title
+
+    section.content
+        p #[strong Name:] #{item.name}
+        p #[strong ID:] #{item._id}
+        p #[strong Unit Price: $] #{item.price_formatted}
+        p #[strong Quantity:] #{item.quantity}
+        p Do you really want to delete this item?
+        form(method='POST' action='')
+            div.form-group
+                input#itemid.form-control(type='hidden',name='itemid', required='true', value=item._id )
+            
+            button.btn.btn-primary(type='submit') Delete
+            a(href='/inventory/list') Cancel

@@ -1,0 +1,36 @@
+doctype html
+html(lang='en-US')
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		title Home
+		link(href='/stylesheets/singlePageTemplate.css' rel='stylesheet' type='text/css')
+		script.
+			var __adobewebfontsappname__="dreamweaver"
+		script(src='http://use.edgefonts.net/source-sans-pro:n2:default.js' type='text/javascript')
+	body
+		// Main Container
+		.container
+			// Navigation
+			header
+				h4.logo TYLER'S MARKET
+				nav
+					ul
+						li
+							a(href='/inventory/list') LIST
+						li
+							a(href='/inventory/item/create') ADD ITEM
+						li
+							a(href='/inventory/item/update') EDIT ITEM
+						li
+							a(href='/inventory/item/delete') DELETE ITEM
+			// Hero Section
+			section#hero.hero
+				h2.hero_header INVENTORY HOME
+			section#home-content.home-content
+				img#aisle-image(src='images/Grocery-Aisle-Cropped.jpg' alt='')
+			footer.secondary_header
+				h4 CALL US: (555) 555 5555
+				h4 EMAIL US: TylersMarket@gmail.com
+				h4 ADDRESS: 123 Made up Lane, New Brighton, MN

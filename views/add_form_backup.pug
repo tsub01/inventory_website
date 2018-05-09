@@ -1,0 +1,43 @@
+doctype html
+html(lang='en-US')
+head
+    title Create Item
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(href='/stylesheets/singlePageTemplate.css' rel='stylesheet' type='text/css')
+
+    // Scripts
+    script.
+        var __adobewebfontsappname__="dreamweaver"
+    script(src='http://use.edgefonts.net/source-sans-pro:n2:default.js' type='text/javascript')
+body
+    // Main container
+    .container
+        // Navigation
+        header
+            h4.logo TYLER'S MARKET
+                nav
+                    ul
+                        li
+                            a(href='/inventory') HOME
+                        li
+                            a(href='/inventory/list') LIST
+        // Hero Section
+        section#hero.list-hero
+            h2.hero_header Create Item
+        // List Section
+        section.content
+            form(method='POST' action='')
+                .form-group
+                    label(for='name') Name:
+                    input#name.form-control(type='text' placeholder='Item Name' name='name' required='true' value=(undefined===item ? '' : item.name))
+                    label(for='price') Unit Price:
+                    input#price.form-control(type='text' placeholder='999.99 or 999' name='price' required='true' value=(undefined===item ? '' : item.price))
+                    label(for='quantity') Quantity:
+                    input#quantity.form-control(type='text' placeholder='9999' name='quantity' required='true' value=(undefined===item ? '' : item.quantity))
+                button.btn.btn-primary(type='submit') Create
+            if errors
+                ul
+                    for error in errors
+                        li!= error.msg

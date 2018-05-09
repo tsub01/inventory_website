@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    // Hero Section
+    section#hero.list-hero
+        h2.hero_header= title
+    
+    section.content
+        form(method='POST' action='')
+            .form-group
+                label(for='name') Name:
+                input#name.form-control(type='text' placeholder='Item Name' name='name' required='true' value=(undefined===item ? '' : item.name))
+                label(for='price') Unit Price:
+                input#price.form-control(type='text' placeholder='999.99 or 999' name='price' required='true' value=(undefined===item ? '' : item.price))
+                label(for='quantity') Quantity:
+                input#quantity.form-control(type='text' placeholder='9999' name='quantity' required='true' value=(undefined===item ? '' : item.quantity))
+            button.btn.btn-primary(type='submit')= submit_name
+            a(href='/inventory/list') Cancel
+        if errors
+            ul
+                for error in errors
+                    li!= error.msg
