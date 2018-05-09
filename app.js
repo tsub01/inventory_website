@@ -9,12 +9,15 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var inventory = require('./routes/inventory');
 var compression = require('compression');
+var helmet = require('helmet');
 
 var app = express();
 
+app.use(helmet());
+
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://dbuser:dbpassword@ds117250.mlab.com:17250/inventory_system';
+var mongoDB = process.env.MONGODB_URI || 'mongodb://dbuser:dbpassword@ds117250.mlab.com:17250/inventory_system';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
